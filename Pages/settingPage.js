@@ -4,12 +4,12 @@ export function createModalSetting(){
     modal.id = "settingModal"
     document.body.append(modal)
 
-    let modalBox = document.createElement("modalBox")
+    let modalBox = document.createElement("div")
     modalBox.className = "modalBox"
     modal.appendChild(modalBox)
 
     let title = document.createElement("div")
-    title.className = "upSpace setting"
+    title.className = "upSpace mdl"
     modalBox.appendChild(title)
 
     let titleName = document.createElement("titleName")
@@ -26,7 +26,7 @@ export function createModalSetting(){
     title.appendChild(closeButton)
 
     let nameForm = document.createElement("form")
-    nameForm.className = "nameForm"
+    nameForm.className = "form"
     modalBox.appendChild(nameForm)
 
     let inputName = document.createElement("input")
