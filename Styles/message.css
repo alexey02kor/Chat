@@ -1,0 +1,19 @@
+.messageBlock{
+    display: flex;
+    flex-direction: column;
+}
+.message{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    max-width: 50%;
+    word-wrap: break-word;
+    border-radius: 25px;
+}
+.message.me{
+    align-self: flex-end;
+}
+.message.companion{
+    align-self: flex-start;
+}
