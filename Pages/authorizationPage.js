@@ -1,3 +1,5 @@
+import {getCode} from "../API/log.js";
+
 export function createModalAuthorizationPage(){
     let modal = document.createElement("div")
     modal.className = "modal open"
@@ -28,6 +30,11 @@ export function createModalAuthorizationPage(){
     let authForm = document.createElement("form")
     authForm.className = "form"
     modalBox.appendChild(authForm)
+    authForm.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        let input = document.getElementById("inputEmail")
+        getCode(input.value)
+    })
 
     let label = document.createElement("label")
     label.innerText = "Почта:"
@@ -46,8 +53,8 @@ export function createModalAuthorizationPage(){
 
     let getButton = document.createElement("button")
     getButton.className="bigButton"
+    getButton.type = "submit"
     getButton.style.margin = "0 22px 0 0"
-
     getButton.innerText = "Получить код"
     authForm.appendChild(getButton)
 
@@ -55,7 +62,12 @@ export function createModalAuthorizationPage(){
     enterButton.className="bigButton"
     enterButton.innerText = "Ввести код"
     authForm.appendChild(enterButton)
-}
-function getCode(){
 
+    enterButton.addEventListener("click",(e)=>{
+        e.preventDefault()
+        let authModal = document.getElementById("authModal")
+        authModal.className = "modal"
+        let codeModal = document.getElementById("codeModal")
+        codeModal.className = "modal open"
+    })
 }
