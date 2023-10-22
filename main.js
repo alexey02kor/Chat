@@ -4,7 +4,6 @@ import {createDialogPage} from "./Pages/dialogPage.js";
 import {createModalAuthorizationPage} from "./Pages/authorizationPage.js";
 import {createModalCodePage} from "./Pages/codePade.js";
 
-
 createDialogPage()
 createModalSetting()
 createModalAuthorizationPage()

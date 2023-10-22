@@ -17,5 +17,5 @@ export function getCode(email){
                 }})
 }
 export function saveToken(token){
-    // Cookies.set("token", token)
+    Cookies.set("token", token)
 }

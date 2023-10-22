@@ -18,6 +18,7 @@
     width: 322px;
     height: 400px;
     background-color: #cccccc;
+    overflow-y: scroll;
 }
 #messageForm{
     width: 321px;

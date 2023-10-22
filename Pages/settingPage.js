@@ -1,3 +1,5 @@
+import {changeName} from "../API/user";
+
 export function createModalSetting(){
     let modal = document.createElement("div")
     modal.className = "modal"
@@ -29,7 +31,13 @@ export function createModalSetting(){
     nameForm.className = "form"
     modalBox.appendChild(nameForm)
 
+    let label = document.createElement("label")
+    label.htmlFor = "settingInput"
+    label.innerText = "Имя в чате"
+    nameForm.appendChild(label)
+
     let inputName = document.createElement("input")
+    inputName.id = "settingInput"
     inputName.className = "input"
     nameForm.appendChild(inputName)
 
@@ -37,4 +45,10 @@ export function createModalSetting(){
     sendButton.className ="send"
     sendButton.innerText = "->"
     nameForm.appendChild(sendButton)
+
+    nameForm.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        let input = document.getElementById("settingInput")
+        changeName(input.value)
+    })
 }

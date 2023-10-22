@@ -1,4 +1,5 @@
 import {addMessage} from "../Elements/message.js";
+import {loadAllMessage} from "../API/message.js";
 
 export function createDialogPage(){
     let mainDiv = document.createElement('div')
@@ -47,6 +48,20 @@ export function createDialogPage(){
     messageForm.addEventListener("submit", (e)=>{
         e.preventDefault()
         let input = document.getElementById("inputMessage")
-        addMessage(input.value)
+        socket.send(JSON.stringify({text: input.value}))
     })
+    renderAllMessages()
+    const socket = new WebSocket(`wss://edu.strada.one/websockets?${Cookies.get("token")}`)
+    socket.onmessage = (e) =>{
+        addMessage(JSON.parse(e.data))
+    }
+}
+function renderAllMessages(){
+    loadAllMessage().then(
+        messages => {
+            for (let message of messages.reverse()){
+                addMessage(message)
+            }
+        }
+    )
 }
